@@ -3,6 +3,13 @@ import "./App.css";
 import Button from "./components/Button";
 import "./App.css";
 import Task from "./components/Task";
+import styled from "styled-components";
+
+const Form = styled.form`
+  display: flex;
+  justify-content: space-evenly;
+  grid-column: 2;
+`;
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -11,27 +18,28 @@ function App() {
 
   return (
     <div className="container">
-      <Button
-        as="input"
-        type="text"
-        className="submitField"
-        onChange={e => {
-          setTemp(e.target.value);
-          console.log(temp);
-        }}
-        value={temp}
-      ></Button>
-      <Button
-        className="addButton"
-        onClick={() => {
+      <Form
+        onSubmit={e => {
+          e.preventDefault();
           setTasks(tasks => [...tasks, { name: temp, id: number }]);
           setNumber(number + 1);
           setTemp("");
         }}
       >
-        Add
-      </Button>
-
+        <Button
+          as="input"
+          type="text"
+          className="submitField"
+          onChange={e => {
+            setTemp(e.target.value);
+            console.log(temp);
+          }}
+          value={temp}
+        ></Button>
+        <Button type="submit" className="addButton">
+          Add
+        </Button>
+      </Form>
       <div className="taskField">
         {tasks.map(task => (
           <a
