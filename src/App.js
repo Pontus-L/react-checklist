@@ -18,6 +18,7 @@ function App() {
 
   return (
     <div className="container">
+      <p className="hints">Hint: Press tasks to delete.</p>
       <Form
         onSubmit={e => {
           e.preventDefault();
@@ -30,6 +31,7 @@ function App() {
           as="input"
           type="text"
           className="submitField"
+          placeholder="Add a task"
           onChange={e => {
             setTemp(e.target.value);
             console.log(temp);
@@ -51,9 +53,16 @@ function App() {
             <Task key={task.id}>{task.name}</Task>
           </a>
         ))}
+        {tasksEmpty(tasks)}
       </div>
     </div>
   );
+}
+
+function tasksEmpty(tasks) {
+  if(tasks.length === 0) {
+    return <p className="noTasksMessage">You have no tasks, try adding one above!</p>
+  }
 }
 
 export default App;

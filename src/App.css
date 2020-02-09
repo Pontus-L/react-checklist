@@ -21,4 +21,18 @@
 .taskField {
   grid-column: 2;
   grid-row: 2;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.hints {
+  grid-column: 1;
+  grid-row: 1;
+  color: rgba(0,0,0, 0.4);
+  margin: auto;
+}
+
+.noTasksMessage {
+  padding: 15px;
 }
