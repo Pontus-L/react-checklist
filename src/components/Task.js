@@ -5,6 +5,11 @@ const Task = styled.p`
   border: 2px solid black;
   margin: 10px;
   border-radius: 10px;
+  transition: all 100ms;
+
+  &:hover {
+    background-color: rgb(0, 0, 0, 0.05);
+  }
 `;
 
 export default Task;
