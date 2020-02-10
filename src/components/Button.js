@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import React, { setState } from "react";
 
 const Button = styled.button`
   padding: 0.5rem 0;

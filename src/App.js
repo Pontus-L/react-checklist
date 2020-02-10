@@ -17,43 +17,49 @@ function App() {
   const [number, setNumber] = useState(0);
 
   return (
-    <div className="container">
-      <p className="hints">Hint: Press tasks to delete.</p>
-      <Form
-        onSubmit={e => {
-          e.preventDefault();
-          setTasks(tasks => [...tasks, { name: temp, id: number }]);
-          setNumber(number + 1);
-          setTemp("");
-        }}
-      >
-        <Button
-          as="input"
-          type="text"
-          className="submitField"
-          placeholder="Add a task"
-          onChange={e => {
-            setTemp(e.target.value);
-            console.log(temp);
+    <div>
+      <header>
+        <h1>Task Manager</h1>
+      </header>
+
+      <div className="container">
+        <p className="hints">Hint: Press a task to delete it.</p>
+        <Form
+          onSubmit={e => {
+            e.preventDefault();
+            setTasks(tasks => [...tasks, { name: temp, id: number }]);
+            setNumber(number + 1);
+            setTemp("");
           }}
-          value={temp}
-        ></Button>
-        <Button type="submit" className="addButton">
-          Add
-        </Button>
-      </Form>
-      <div className="taskField">
-        {tasks.map(task => (
-          <a
-            key={task.id}
-            onClick={() => {
-              setTasks(tasks.filter(item => item.id !== task.id));
+        >
+          <Button
+            as="input"
+            type="text"
+            className="submitField"
+            placeholder="Add a task"
+            onChange={e => {
+              setTemp(e.target.value);
+              console.log(temp);
             }}
-          >
-            <Task key={task.id}>{task.name}</Task>
-          </a>
-        ))}
-        {tasksEmpty(tasks)}
+            value={temp}
+          ></Button>
+          <Button type="submit" className="addButton">
+            Add
+          </Button>
+        </Form>
+        <div className="taskField">
+          {tasks.map(task => (
+            <a
+              key={task.id}
+              onClick={() => {
+                setTasks(tasks.filter(item => item.id !== task.id));
+              }}
+            >
+              <Task className="task" key={task.id}>{task.name}</Task>
+            </a>
+          ))}
+          {tasksEmpty(tasks)}
+        </div>
       </div>
     </div>
   );
