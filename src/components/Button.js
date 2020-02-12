@@ -1,19 +1,16 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-  padding: 0.5rem 0;
+  position: relative;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  min-width: 64px;
+  height: 36px;
+  vertical-align: middle;
   text-align: center;
-  padding-left: 50px;
-  padding-right: 50px;
-  border-radius: 20px;
-  border: 2px solid gray;
-  margin: 0.5rem 1rem;
-  background: transparent;
-  transition: ease-in-out 100ms;
-
-  &:hover {
-    background-color: rgb(0, 0, 0, 0.1);
-  }
+  background-color: hotpink;
 `;
 
 export default Button;

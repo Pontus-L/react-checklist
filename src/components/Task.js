@@ -1,10 +1,11 @@
 import styled, {keyframes} from "styled-components";
 import {fadeIn, fadeOut} from 'react-animations';
+import React, { useState } from "react";
 
 const fadeInAnimation = keyframes`${fadeIn}`
 const fadeOutAnimation = keyframes`${fadeOut}`
 
-const Task = styled.p`
+const TaskElement = styled.p`
   animation: 1s ${fadeInAnimation};
   padding: 20px;
   border: 2px solid black;
@@ -21,4 +22,5 @@ const Task = styled.p`
   }
 `;
 
-export default Task;
+export default TaskElement;
+
