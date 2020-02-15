@@ -17,6 +17,7 @@ function TaskList() {
                 setTasks(tasks => [...tasks, { name: temp, id: number, display: true }]);
                 setNumber(number + 1);
                 setTemp("");
+                console.log(tasks);
               }}
             >
               <Input
@@ -40,7 +41,9 @@ function TaskList() {
               task.display ? <Task
                 key={task.id}
                 onClick={() => {
-                  setTasks([...tasks, task.display = false])
+                  setTasks(tasks.map(item => {
+                    return item.id === task.id ? {...item, display: false}  :  item;
+                  }))
                 }}
               >{task.name}</Task> : null
             ))}
@@ -51,6 +54,9 @@ function TaskList() {
             {tasks.map((task) => (
               !task.display ? <Task
                 key={task.id}
+                onClick={() => {
+                  console.log(tasks);
+                }}
               >{task.name}</Task> : null
             ))}
           </div>

@@ -18,6 +18,7 @@
 
 .submitField {
   grid-column: 2;
+  outline: none;
 }
 
 .tasks {
@@ -46,6 +47,7 @@
 
   .submitField {
     grid-column: 2;
+    outline: none;
   }
 
   .addButton {
