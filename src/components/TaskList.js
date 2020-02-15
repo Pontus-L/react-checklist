@@ -2,6 +2,13 @@ import React, { useState } from 'react'
 import Input from './Input';
 import Button from './Button';
 import Task from './Task';
+import styled from 'styled-components';
+
+const Form = styled.form`
+  display: flex;
+  justify-content: space-between;
+  color: red;
+`
 
 function TaskList() {
     const [tasks, setTasks] = useState([]);
@@ -17,7 +24,6 @@ function TaskList() {
                 setTasks(tasks => [...tasks, { name: temp, id: number, display: true }]);
                 setNumber(number + 1);
                 setTemp("");
-                console.log(tasks);
               }}
             >
               <Input
@@ -39,13 +45,32 @@ function TaskList() {
             <h2>Tasks</h2>
             {tasks.map((task) => (
               task.display ? <Task
-                key={task.id}
-                onClick={() => {
-                  setTasks(tasks.map(item => {
-                    return item.id === task.id ? {...item, display: false}  :  item;
-                  }))
-                }}
-              >{task.name}</Task> : null
+              key={task.id}>
+                <Form
+                    className="innerTask"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      setTasks(tasks.map(item => {
+                        return item.id === task.id ? {...item, display: false}  :  item;
+                      }))
+                    }}>
+                  <input
+                  key={task.id}
+                  onChange={e => {
+                    setTasks(tasks.map(item => {
+                      return item.id === task.id ? {...item, name: e.target.value}  :  item;
+                    }))
+                  }}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                    }
+                  }}
+                  value={task.name}
+                  ></input> 
+                  <Button type="submit">Complete</Button>
+                </Form>
+              </Task>: null
             ))}
           </div>
 
@@ -54,9 +79,6 @@ function TaskList() {
             {tasks.map((task) => (
               !task.display ? <Task
                 key={task.id}
-                onClick={() => {
-                  console.log(tasks);
-                }}
               >{task.name}</Task> : null
             ))}
           </div>

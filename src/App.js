@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-import "./App.css";
 import TaskList from './components/TaskList';
 
 function App() {
@@ -12,7 +11,7 @@ function App() {
       </header>
 
       <div className="container">
-        <p className="hints">Hint: Press tasks to delete them.</p>
+        <p className="hints">Hint: Press tasks to complete.</p>
         
         <TaskList/>
         

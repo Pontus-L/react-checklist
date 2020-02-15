@@ -10,7 +10,7 @@ const Button = styled.button`
   height: 36px;
   vertical-align: middle;
   text-align: center;
-  background-color: hotpink;
+  background-color: turquoise;
 `;
 
 export default Button;

@@ -27,6 +27,21 @@
   grid-row: 2;
 }
 
+input {
+  border: none;
+  padding: 5px;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.innerTask {
+  display: flex;
+  justify-content: space-between;
+}
+
 .completedTasks {
   grid-row: 3;
   grid-column: 2;
@@ -57,10 +72,6 @@
   .hints {
     display: none;
   }
-}
-
-.noTasksMessage {
-  padding: 15px;
 }
 
 header {
