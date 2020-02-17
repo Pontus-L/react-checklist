@@ -10,9 +10,10 @@ const Input = styled.input`
     margin: 0.5rem 1rem;
     background: transparent;
     transition: ease-in-out 100ms;
+    width: 40%;
 
     &:hover {
-    background-color: rgb(0, 0, 0, 0.1);
+        background-color: rgb(0, 0, 0, 0.1);
     }
 `
 

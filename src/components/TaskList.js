@@ -6,8 +6,7 @@ import styled from 'styled-components';
 
 const Form = styled.form`
   display: flex;
-  justify-content: space-between;
-  color: red;
+  justify-content: space-around;
 `
 
 function TaskList() {
@@ -68,7 +67,16 @@ function TaskList() {
                   }}
                   value={task.name}
                   ></input> 
-                  <Button type="submit">Complete</Button>
+                  <div className="taskButtons">
+                    <Button 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setTasks(tasks.filter(item => (
+                          item.id !== task.id
+                        )))}}
+                      >Remove</Button>
+                    <Button type="submit">Complete</Button>
+                  </div>
                 </Form>
               </Task>: null
             ))}

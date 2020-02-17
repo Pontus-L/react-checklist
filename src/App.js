@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import TaskList from './components/TaskList';
 
@@ -11,9 +11,8 @@ function App() {
       </header>
 
       <div className="container">
-        <p className="hints">Hint: Press tasks to complete.</p>
         
-        <TaskList/>
+        <TaskList className="tasklist"/>
         
       </div>
     </div>

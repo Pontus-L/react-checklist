@@ -11,6 +11,7 @@ const Button = styled.button`
   vertical-align: middle;
   text-align: center;
   background-color: turquoise;
+  margin-left: 5px;
 `;
 
 export default Button;
