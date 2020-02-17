@@ -8,4 +8,3 @@ const TaskElement = styled.div`
 `;
 
 export default TaskElement;
-
